@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  server:
+    build:
+      dockerfile: Dockerfile.project1.dev
+      context: ../../.
+    volumes:
+      - ../../.:/app
+      - /app/node_modules
+      - /app/packages/server1/node_modules
+      - /app/packages/module1/node_modules

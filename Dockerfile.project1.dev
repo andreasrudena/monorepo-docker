@@ -1,0 +1,18 @@
+FROM node:alpine
+WORKDIR "/app"
+
+RUN npm i lerna -g --loglevel notice
+
+# install the root dependencies from NPM
+COPY ./package.json ./
+RUN npm i --loglevel notice
+
+# copy the repo source needed
+COPY ./babel.config.js ./babel.config.js
+COPY ./lerna.json ./lerna.json
+COPY ./packages/server1 ./packages/server1
+COPY ./packages/module1 ./packages/module1
+
+RUN lerna bootstrap
+
+CMD [ "npm", "--prefix", "packages/server1", "run", "start" ]
