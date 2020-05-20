@@ -13,6 +13,6 @@ COPY ./lerna.json ./lerna.json
 COPY ./packages/server1 ./packages/server1
 COPY ./packages/module1 ./packages/module1
 
-RUN lerna bootstrap
+RUN lerna bootstrap --hoist
 
 CMD [ "npm", "--prefix", "packages/server1", "run", "start" ]

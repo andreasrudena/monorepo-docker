@@ -2,7 +2,7 @@ version: '3.8'
 services:
   server:
     build:
-      dockerfile: Dockerfile.project1.dev
+      dockerfile: Dockerfile.server1.dev
       context: ../../.
     volumes:
       - ../../.:/app
