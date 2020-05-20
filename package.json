@@ -1,0 +1,17 @@
+{
+  "name": "monorepo-docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server1": "npm --prefix packages/server1 run start"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/register": "^7.9.0",
+    "babel-plugin-module-resolver": "^4.0.0"
+  }
+}
