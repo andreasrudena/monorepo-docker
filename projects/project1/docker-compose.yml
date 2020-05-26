@@ -9,3 +9,14 @@ services:
       - /app/node_modules
       - /app/packages/server1/node_modules
       - /app/packages/module1/node_modules
+      - /app/packages/module2/node_modules
+  test:
+    build:
+      dockerfile: Dockerfile.test
+      context: ../../.
+    volumes:
+      - ../../.:/app
+      - /app/node_modules
+      - /app/packages/server1/node_modules
+      - /app/packages/module1/node_modules
+      - /app/packages/module2/node_modules
