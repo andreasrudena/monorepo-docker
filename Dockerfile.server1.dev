@@ -12,6 +12,7 @@ COPY ./babel.config.js ./babel.config.js
 COPY ./lerna.json ./lerna.json
 COPY ./packages/server1 ./packages/server1
 COPY ./packages/module1 ./packages/module1
+COPY ./packages/module2 ./packages/module2
 
 RUN lerna bootstrap --hoist
 
