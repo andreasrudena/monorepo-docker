@@ -1,0 +1,18 @@
+FROM node:alpine
+WORKDIR '/app'
+
+# install lerna to get access to the shared packages in the repo
+# this is also why the dockerfile needs to be in the root of the repo
+RUN npm i lerna -g --loglevel notice
+
+# install the lerna root dependencies from NPM
+COPY ./package.json ./
+RUN npm install
+
+COPY . .
+
+COPY lerna.json .
+RUN lerna link convert
+
+# run tests and watch files for changes
+CMD [ "npm", "run", "test:watch" ]
